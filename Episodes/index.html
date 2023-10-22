@@ -41,8 +41,8 @@
 </body>
 </html>-->
 
-
-<!DOCTYPE html>
+<!-- This CDN Way is one way to make react work with our html file, but the preferred way is to use npm install -->
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,5 +56,22 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="./app.js"></script>
+</body>
+</html> -->
+
+<!-- Here React and React Dom are installed via package.json/from NPM -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css" />
+    <title>Namaste React</title>
+</head>
+<body>
+    <div id="root">
+        <h1>Welcome to Namaste React!</h1>
+    </div>
+    <script type="module" src="./app.js"></script>
 </body>
 </html>
