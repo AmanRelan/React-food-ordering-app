@@ -55,13 +55,15 @@
         <h2></h2>
     </div>
 </div> */}
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 const parent = React.createElement('div',
     { id: 'parent' },
     [
         React.createElement('div',
             { id: 'child' },
-            [React.createElement('h1', {}, "I AM AN h1 TAG"),
+            [React.createElement('h1', {}, "This is Namaste React!!!"),
             React.createElement('h2', {}, "I AM AN h2 TAG")]
         ),
         React.createElement('div',

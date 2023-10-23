@@ -1,0 +1,98 @@
+Episode 2:- Igniting our App
+
+Npm is not Node package Manager but is everything else. NPM manages packages but it is not Node Package Manager
+Behind the Scenes, it works as a node package manager but it does not stand for node package manager.
+NPM is basically a standard repository for all the packages
+
+Add NPM to our app -> npm init and answer the questions that follows, if you want to skip these questions:- npm init -y
+
+Entry Point:- 
+
+
+Package.json:- 
+It is a JSON Structured file which is a configuration for NPM.
+Why do we need package.json?
+-> Npm manages all the packages that we will install in the system.
+Keeps Tracks of  the version of package installed in the system.
+This helps us get packages in our system/app.
+
+The most important package in our project is a `Bundler`.
+-> What is a `Bundler`?
+Ans:- It is a development tool that combines all the html, css, JS files into a single production-ready loadable in the browser.
+Examples:- Webpack, Parcel, Vite
+The purpose of a bundler is to `bundle, minify, cache, compress, clean` the code
+Create-react-app behind the scenes uses webpack bundler.
+
+We use Parcel in Namaste React. To install parcel/any Node package from npm registry, we use this command:- `npm install -D parcel`.
+
+While installing parcel, we will it install it as a dev dependency.
+To install it as a dev dependency, we use the `-D` flag.
+
+There are two types of dependencies that can be installed in our app:-
+1. Dev dependency:- Generally required in development phase.
+2. Normal Dependency:- Production ready dependencies.
+
+For Package versions, we have 2 characters:-
+1. `^`-> Caret Character - Automatically updates the package version(minor upgrade)
+2. `~`-> Tilde Character- Installs the Major Version automatically.
+
+Always safe to use `^` caret.
+
+Package-lock.json:- Keeps the track of exact version that is being installed.
+It contains the details about the exact package like it contains an integrity hash that is used to verify if the same version is installed on the production environment.
+
+Node_modules -> It contains all the code that we fetched from NPM. When we did `npm install -D parcel`, it was fetching all the parcel code and putting it inside node_modules.
+
+Parcel as a project has its own dependencies and those dependencies can have their own dependencies. This is known as Transitive Dependencies.
+Indirect dependency relationship between software components. Parcel uses babel.
+Every dependency, every package will have its own package.json and package-lock.json, so we have multiple dependencies, which is written in each packages `package.json`
+
+#Igniting our APP 
+
+run the command `npx parcel index.html` in our terminal.
+When we run this command, parcel goes to the source file i.e. index.html in our case and builds a development server and hosts it on localhost:1234
+
+#IMPORTANT:- CDN Links are not a preferred way to bring react & reactDom in our app. Why?
+-> Fetching from CDN links is a costly operation, because it will make a N/w call
+-> CDN Link is static & for every new update of react, we will have to change the URL over & over again.
+
+So, it is better to install react from NPM.
+Can be done using `npm install react`.
+We will also install react-dom, can be done using `npm install react-dom`.
+
+This will install react & react-dom.
+
+Caution: This will not make the app run on its own.
+To make the app run again, you will need to import react, which was earlier done from the CDN links.
+The import will use React that we installed using npm install.
+
+But when you import, there will be an error that says:- 
+
+-> Browser scripts cannot have imports or exports.
+When the HTML works, it treats our app.js file as a normal JS script, but we are not using a browser script but this is a module.
+To solve this issue, we need to add type="module" in the script tag where we are using our `app.js` file.
+
+PARCEL Powers(parceljs.org) - 
+-> Dev Build
+-> Local Server
+-> HMR known as Hot Module Replacement => Done by using a file watching Algorithm- written in C++
+-> Faster Builds => Using Caching, Caching in `.parcel-cache`
+-> Image Optimisation
+-> Minification => Done for Production Build
+-> Bundle all the files
+-> Compress files
+-> Consistent Hashing
+-> Code Splitting
+-> Differential Bundling - support of Older versions of browsers, so parcel handles that, so that the app runs smoothly in older browsers.
+-> Diagnostic
+-> Error Handling
+-> HTTPs support
+-> Tree shaking - Tree shaking is a term commonly used in the JavaScript context for dead-code elimination
+-> Different dev and prod bundles - prod can be built using `npx parcel build index.html`, but it might have a configuration error with the entry point specified in package.json. So, you have to remove the entry point from package.json, which is `main: "app.js" ` in our current code
+
+When a prod build is made, it will create a new folder called `dist` and put the production ready files in the dist folder.
+
+For making app compatible for older browsers, we will use `browserslist` npm package for which it needs configuration.
+We can visit this website - `browserslist.dev` to find the versions of browsers you want to configure along with the specified names of the browser and can see the number of browser coverage.
+
+We define it in package.json as `"browserslist" : [<enter configuration here>]`
