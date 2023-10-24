@@ -1,0 +1,159 @@
+Episode 3:- Laying the Foundation
+
+-> Rather than everytime running the command `npx parcel index.html`/ `npx parcel build index.html`, 
+we can create a script in package.json
+So, for running a development build, we will create a script called "start" with the command `parcel index.html` 
+and to create a production ready script, we will create a script called "build" with the command `parcel build index.html`
+and then we can run the scripts by writing `npm run start`/ to build for production write `npm run build`.
+
+`npm run start = npm start`, but this is only valid for the start script
+as `npm run build != npm build`.
+
+> NOTE: React Element is not equal to HTML Element. 
+When you do React.createElement, BTS will create an Object, and as we render the React Element onto the DOM, then it becomes 
+HTML Element. 
+To Render, we will first create the root element by ReactDOM.createRoot(document) and then pass the React Element to be rendered
+to the DOM in the root element.
+
+NOTE -> ReactElement is just a JS Object
+-> what will `root.render` do?
+ReactDOM takes this object(ReactElement) and converts it to an HTMLElement and pushes it to the browser.
+With push, it means will be replaced in the root by the ReactElement we created.
+
+On seeing, `const heading = React.createElement("h1", {id: "heading"}, "Namaste React!");` does not seem like a good way
+as it is not easy and the syntax is pretty bad. This way is the core of react, but soon react developers realised, if we create this way
+this will not work. Think about it as a nested structure, it will be very clumsy. So, to help overcome this:-
+
+==> React developers created JSX <==
+
+What is JSX?
+JSX is a JS syntax which makes it easier to create react elements.
+JSX is not a part of React. JSX is separate and React is separate, it is just a syntax to help develop elements in react.
+
+JSX is a syntax extension for JS that lets you write HTML-like markup inside a JS File.
+
+Lot of developers feel we have written HTML inside JS files, but it is not HTML but it is JSX. 
+
+MOST IMPORTANT ---> JSX lets you write HTML-like or XML-like markup but it is not `JSX is HTML Inside JS files.`
+
+In the core of React, we create elements like `const heading = React.createElement("h1", {id: "heading"}, "Namaste React!");`,
+there is no JSX. JSX is different and it helps improve the development experience.
+
+Do you think it is a valid JS syntax? 
+"
+const jsxHeading = <h1 id="heading">Namaste React! using JSX</h1>;
+"
+No, this is not a valid pura Javascript. Js Engine will not understand this code because JS Engine understands ECMAScript.
+If JS engine cannot read this code, how is the code rendered?
+-> Parcel is doing the job behind the scenes. Before the whole code goes to browser/JS Engine, it is `transpiled` before it goes
+to the JS Engine and then JS Engine receives the code that it understands
+
+-> Transpiled means code is converted to the code that browser can understand.
+Transpiling is done by Parcel. Transpilation responsibility is given to babel(a package), which transpiles the code
+to what a machine can understand
+
+How does this jsx code work?
+=> `const jsxHeading = <h1 id="heading">Namaste React! using JSX</h1>;`
+-> Behind the scenes, JSX code is transpiled to `React.createElement` and it is then rendered onto the DOM as HTML element.
+
+All of this conversion in the backend is done BY BABEL. Can be read at :- https://babeljs.io/
+
+NOTE > If you have to give an attribute to JSX, you have to use `camelCase`
+
+When writing JSX and JSX is in single-line, it is perfectly valid JSX
+const jsxHeading = <h1 id="heading">Namaste React! using JSX</h1>;`
+
+But if you have to write it in multiple lines, we have to wrap the code in a round bracket
+const jsxHeading = ( <h1 className="head">
+    Namaste React using JSX
+    </h1>
+)
+
+Extensions Installed- 
+-> Prettier - Code Formatter
+-> Bracket Pair Colorizer
+-> EsLint
+-> Better Comments
+
+===> REACT COMPONENTS <===
+Everything in react is component. What is a component?
+-> Two types of Components
+=> 1. Class Based Components - OLD Way of Writing Components -> Uses JS Classes
+=> 2. Functional Components - New/Modern Way of writing Components -> Uses JS Functions
+
+React Functional Component - Is a normal JS Function which returns some JSX element - NAME WITH A CAPITAL Letter otherwise error.
+or JS Function that returns React Element.
+
+Here HeadingComponent is equal to HeadingComponent2. 
+```
+const HeadingComponent = () => {
+    return <h1>Namaste React Functional Component!!</h1>;
+};
+
+const HeadingComponent2 = () => (
+    <div>
+        <h1>Namaste React Functional Component Part 2</h1>
+    </div>
+);
+```
+Convert React Element to React Component
+const heading = (<h1 id="heading" className="head" tabIndex='5'>Namaste React! using JSX</h1>);
+
+const Heading = () => (<h1 id="heading" className="head" tabIndex='5'>Namaste React! using JSX</h1>);
+
+So, what is the difference between React Element and React Component?
+
+If I want to render a HeadingComponent inside the render, how will I do it?
+root.render(HeadingComponent); <- This will not work because this is how we render a React Element, but
+HeadingComponent is a functional Component.
+
+So, we render a component like:- root.render(<HeadingComponent />);
+
+Suppose, now if we have multiple components and we want to render one inside the other. Say for example:- 
+We want to display Title inside Heading Component:- 
+
+`const Title = () => (<h1 id="heading" className="head" tabIndex='5'>Namaste React! using JSX</h1>);`
+
+So, we change the heading component like:- 
+```
+const HeadingComponent2 = () => (
+    <div id="container">
+        <Title />
+        <h1>Namaste React Functional Component Part 2</h1>
+    </div>
+);
+```
+
+> IMPORTANT(can be sometimes asked in some interview) => This is Component Composition => Putting a component inside a Component
+
+YOU Can also use normal Function instead of Arrow function and it works correctly as well.
+
+> IMPORTANT:- JSX SUPERPOWER -> Write a CURLY PARANTHESIS {} & you can write any JS Code inside this curly brackets.
+Example- const number = 1000; 
+{number}
+It will print 1000
+
+What if I have to put a React Element inside a component?
+-> So, we simply just use the curly paranthesis {} and put the React Element inside the brackets.
+And we can do the same if we want to put a React Element inside a React Element also.
+And we can also do the same to put a Component inside a Element as well.
+
+Example- 
+```
+const number = 1000;
+const HeadingComponent2 = () => (
+    <div id="container">
+        {heading}
+        <Title />
+        <h1>Namaste React Functional Component Part 2</h1>
+    </div>
+);
+```
+
+JSX is so powerful that it takes care of Injection attacks. If some Malicious data is passed to the JSX, it will sanitise the data
+and then execute the Javascript and that is one of the power of JSX.
+
+You can also write the components in two ways:- 
+<Title/> or <Title></Title> and they are both the same things
+and you can write multiple components and it will work even then.
+We can also write a function inside curly braces {Title()} and it will still work.

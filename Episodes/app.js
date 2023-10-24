@@ -1,81 +1,33 @@
-// const heading = React.createElement('h1',
-//     { id: 'heading' },
-//     'Hello World from React');
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(heading);
-
-
-// Suppose we want to have a nested HTML like this
-{/* <div id='parent'>
-    <div id='child'>
-        <h1></h1>
-    </div>
-</div> */}
-// How do I create Nested elements?
-// const parent = React.createElement('div',
-//     { id: 'parent' },
-//     React.createElement('div', 
-//         { id: 'child' },
-//         React.createElement('h1', {}, "I AM AN h1 TAG")
-//     )
-// );
-// console.log(parent);
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(parent);
-
-
-// What if we have to create Siblings?
-{/* <div id='parent'>
-    <div id='child'>
-        <h1></h1>
-        <h2></h2>
-    </div>
-</div> */}
-
-// const parent = React.createElement('div',
-//     { id: 'parent' },
-//     React.createElement('div',
-//         { id: 'child' },
-//         [React.createElement('h1', {}, "I AM AN h1 TAG"),
-//         React.createElement('h2', {}, "I AM AN h2 TAG")]
-//     )
-// );
-// console.log(parent);
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(parent);
-
-// What if it is a more complex nested structure?
-{/* <div id='parent'>
-    <div id='child'>
-        <h1></h1>
-        <h2></h2>
-    </div>
-    <div id='child2'>
-        <h1></h1>
-        <h2></h2>
-    </div>
-</div> */}
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const parent = React.createElement('div',
-    { id: 'parent' },
-    [
-        React.createElement('div',
-            { id: 'child' },
-            [React.createElement('h1', {}, "This is Namaste React!!!"),
-            React.createElement('h2', {}, "I AM AN h2 TAG")]
-        ),
-        React.createElement('div',
-            { id: 'child2' },
-            [React.createElement('h1', {}, "I AM AN h1 TAG"),
-            React.createElement('h2', {}, "I AM AN h2 TAG")]
-        )
-    ]
-);
-console.log(parent);
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(parent);
+// React Element => Object This is how you create a React Element using React
+// const heading = React.createElement("h1", {id: "heading"}, "Namaste React!");
+// console.log(heading);
 
-// But this nested structure can be much more complicated and can get much more tedious and untidy
-// So to overcome this we have JSX that exists.
+//JSX Heading(Babel Transpiles it) => React.creatElement => ReactElement-JS Object => HTMLElement(render)
+// All of the above conversion is done by BABEL.
+
+// React Element
+const heading = (<h1 id="heading" tabIndex='5'>Namaste React! in Heading</h1>);
+// console.log(heading);
+
+//React Functional Component
+const HeadingComponent = () => {
+    return <h1>Namaste React Functional Component!!</h1>;
+};
+
+const Title = () => (<h1 id="heading" className="head" tabIndex='5'>Namaste React! using JSX</h1>);
+
+const number = 1000;
+const HeadingComponent2 = () => (
+    <div id="container">
+        {heading}
+        <Title />
+        <h1>Namaste React Functional Component Part 2</h1>
+    </div>
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(heading);
+root.render(<HeadingComponent2 />)
