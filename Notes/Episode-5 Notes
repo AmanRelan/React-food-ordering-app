@@ -1,11 +1,12 @@
-Episode 5:- Let's get Hooked!
+# Episode 5:- Let's get Hooked!
 
-Everything you can do with React, it can be done by HTML,CSS, JS. So, why react?
--> It makes the developer experience easy. Makes you write less code and do more on the webpage.
+> Everything you can do with React, it can be done by HTML,CSS, JS. So, why react?
+
+- It makes the developer experience easy. Makes you write less code and do more on the webpage.
 React gives you super-powers, so that you can build these large scale production-ready performant applications.
 React makes the coding experience very fast and optimises things on the web page so that things happen very fast.
 
--> Best Practice in the industry is to make separate files for separate components
+> Best Practice in the industry is to make separate files for separate components
 
 React folder structure(Popular Industry Approach), you can structure however you want-
 All the main code remains in the src folder.
@@ -22,15 +23,15 @@ What is exporting a component?
 -> The export statement is used in modules to expose variables, functions, or classes so that they can be accessed and used in other parts of the application or in separate files.
 
 Exporting can be done in two ways:-
--> 1. Default Exports => `export default <component name>`, which enables it to be imported in the main `app.js` file.
--> 2. Named Exports => `export const <variable_name>`, used when in a single file you have to export multiple things
+> 1. Default Exports => `export default <component name>`, which enables it to be imported in the main `app.js` file.
+> 2. Named Exports => `export const <variable_name>`, used when in a single file you have to export multiple things
 
 Each file can have only 1 default export. So, if you have to export multiple things we can use Named exports
 
 Similarly, we have two types of imports
 
--> 1. Default Import => `import resList from "../utils/mockData";`
--> 2. Named Import => `import { CDN_URL } from "../utils/constants";`
+> 1. Default Import => `import resList from "../utils/mockData";`
+> 2. Named Import => `import { CDN_URL } from "../utils/constants";`
 
 ====> Make our App Interactive/Dynamic <====
 We will create a Filter button -> on click of which, we will filter the top rated restaurant (rating >4 stars)
@@ -78,7 +79,7 @@ HOW React Works BTS?
 -> React uses Reconciliation Algorithm. Whenever something changes in the DOM it is known as Reconciliation.
 In React 16 to update the DOM a new Algorithm came out, this Reconciliation algorithm is called React fiber.
 
-![Alt text](React-core.png)
+![React-core](React-core.png)
 React creates a Virtual DOM. Virtual DOM is a representation of the real/Actual DOM.
 It is just a JS object which contains all the React Elements. or a Virtual Representation of all the HTML elements.
 
