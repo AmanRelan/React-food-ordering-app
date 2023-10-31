@@ -1,18 +1,9 @@
 import { useState } from "react";
 const User = (props) => {
   const [count, setCount] = useState(0);
-  // const incrementCount = () => {
-  //   console.log(count);
-  //   setCount(count + 1);
-  //   setCount(count + 1);
-  //   setCount(count + 1);
-  // };
-  useEffect(() => {
-    console.log("use Effect");
 
-    return () => {
-      console.log("use Effect Return");
-    };
+  useEffect(() => {
+    return () => {};
   }, []);
   return (
     <div className="user-card p-4 m-4 bg-gray-200 rounded-lg">

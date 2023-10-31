@@ -2,7 +2,6 @@ import React from "react";
 
 class UserClass extends React.Component {
   constructor(props) {
-    console.log("Component constructor.");
     super(props);
     this.state = {
       userInfo: {
@@ -13,24 +12,16 @@ class UserClass extends React.Component {
     };
   }
   async componentDidMount() {
-    console.log("Component Did Mount");
-
-    // console.log(this.props.name + "Child Component did Mount");
     const data = await fetch("https://api.github.com/users/AmanRelan");
     const json = await data.json();
     this.setState({
       userInfo: json,
     });
   }
-  componentDidUpdate() {
-    console.log("Update Cycle finishes.");
-  }
+  componentDidUpdate() {}
 
-  componentWillUnmount() {
-    console.log("UNMOUNTING");
-  }
+  componentWillUnmount() {}
   render() {
-    console.log("Component render.");
     const { name, location, avatar_url } = this.state.userInfo;
 
     return (
