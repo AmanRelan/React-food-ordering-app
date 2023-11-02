@@ -1,0 +1,104 @@
+{
+    "info": {
+        "id": "746080",
+        "name": "Haldiram's",
+        "cloudinaryImageId": "25c3a7d394d6c5556b134385f7d665b0",
+        "locality": "Scheme No 54",
+        "areaName": "Vijay Nagar",
+        "costForTwo": "₹200 for two",
+        "cuisines": [
+            "Sweets",
+            "Snacks",
+            "Beverages"
+        ],
+        "avgRating": 4.3,
+        "veg": true,
+        "feeDetails": {
+            "restaurantId": "746080",
+            "fees": [
+                {
+                    "name": "BASE_DISTANCE",
+                    "fee": 5700
+                },
+                {
+                    "name": "BASE_TIME"
+                },
+                {
+                    "name": "ANCILLARY_SURGE_FEE"
+                }
+            ],
+            "totalFee": 5700
+        },
+        "parentId": "377669",
+        "avgRatingString": "4.3",
+        "totalRatingsString": "20+",
+        "sla": {
+            "deliveryTime": 31,
+            "lastMileTravel": 6,
+            "serviceability": "SERVICEABLE",
+            "slaString": "31 mins",
+            "lastMileTravelString": "6.0 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2023-11-02 22:00:00",
+            "opened": true
+        },
+        "badges": {
+            "imageBadges": [
+                {
+                    "imageId": "v1695133679/badges/Pure_Veg111.png",
+                    "description": "pureveg"
+                }
+            ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "pureveg",
+                                "imageId": "v1695133679/badges/Pure_Veg111.png"
+                            }
+                        }
+                    ]
+                },
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "FREE ITEM"
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "isNewlyOnboarded": true,
+        "restaurantOfferPresentationInfo": {}
+    },
+    "analytics": {
+        "context": "seo-data-883b0924-47df-46de-9390-c2dd5cdab8ac"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/restaurants/haldirams-scheme-no-54-vijay-nagar-indore-746080",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}
