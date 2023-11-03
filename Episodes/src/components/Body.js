@@ -11,17 +11,17 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   const RestaurantCardVeg = withVegetarianLabel(RestaurantCard);
-  const { loggedInUser, setUserName } = useContext(UserContext);
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7195687&lng=75.8577258&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7195687&lng=75.8577258&page_type=DESKTOP_WEB_LISTING"
     );
     const swiggyJsonData = await data.json();
     const restaurant_list = "restaurant_grid_listing";
+    // const restaurant_list = "FavouriteRestaurantInfoWithStyle";
     const restaurantCard = swiggyJsonData?.data?.cards?.find(
       (card) => card.card.card.id === restaurant_list
     );
@@ -35,14 +35,12 @@ const Body = () => {
 
   if (onlineStatus === false) {
     return (
-      <h1>
+      <h1 className="text-center font-bold">
         Looks like you are offline, please check your internet connection.
       </h1>
     );
   }
-  return listOfRestaurants.length === 0 ? (
-    <Shimmer />
-  ) : (
+  return (
     <div className="body">
       <div className="filter flex">
         <div className="search m-4 p-4">
@@ -83,31 +81,26 @@ const Body = () => {
             Top Rated Restaurant in your City
           </button>
         </div>
-        <div className="m-4 p-4 flex items-center">
-          <label>Username: </label>
-          <input
-            className="m-2 p-2 border border-black"
-            value={loggedInUser}
-            onChange={(e) => {
-              setUserName(e.target.value);
-            }}
-          />
+      </div>
+
+      {listOfRestaurants.length === 0 ? (
+        <div className="flex">{<Shimmer />}</div>
+      ) : (
+        <div className="flex flex-wrap">
+          {filteredRestaurant.map((restaurant) => (
+            <Link
+              key={restaurant.info.id}
+              to={"/restaurants/" + restaurant.info.id}
+            >
+              {restaurant.info && restaurant.info.veg === true ? (
+                <RestaurantCardVeg resData={restaurant} />
+              ) : (
+                <RestaurantCard resData={restaurant} />
+              )}
+            </Link>
+          ))}
         </div>
-      </div>
-      <div className="flex flex-wrap">
-        {filteredRestaurant.map((restaurant) => (
-          <Link
-            key={restaurant.info.id}
-            to={"/restaurants/" + restaurant.info.id}
-          >
-            {restaurant.info && restaurant.info.veg === true ? (
-              <RestaurantCardVeg resData={restaurant} />
-            ) : (
-              <RestaurantCard resData={restaurant} />
-            )}
-          </Link>
-        ))}
-      </div>
+      )}
     </div>
   );
 };
