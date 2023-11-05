@@ -4,3 +4,5 @@ export const LOGO_URL =
   "https://content.jdmagicbox.com/comp/jodhpur/y9/0291px291.x291.180720205505.n6y9/catalogue/khana-bazar-com-every-restaurant-in-home--jodhpur-residency-road-jodhpur-restaurants-ome5bg2ap8.jpg?clr=";
 export const MENU_API_URL =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.7195687&lng=75.8577258&restaurantId=";
+export const RESTAURANT_LIST_URL =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7195687&lng=75.8577258&page_type=DESKTOP_WEB_LISTING";
