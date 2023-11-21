@@ -33,7 +33,7 @@ class UserClass extends React.Component {
         />
         <h2 className="px-2 font-bold">Name: {name}</h2>
         <h2>🏡: {location}</h2>
-        <h4 class="ml-2 flex">
+        <h4 className="ml-2 flex">
           📞:
           <a
             href="https://linkedin.com/in/aman-relan"

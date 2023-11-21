@@ -12,14 +12,18 @@ const useRestaurantList = () => {
   const fetchData = async () => {
     const data = await fetch(RESTAURANT_LIST_URL);
     const swiggyJsonData = await data.json();
-    const restaurant_list = "top_brands_for_you";
-    // const restaurant_list = "FavouriteRestaurantInfoWithStyle";
-    const restaurantCard = swiggyJsonData?.data?.cards?.find(
-      (card) => card.card.card.id === restaurant_list
-    );
-    const restaurantData =
-      restaurantCard?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    setAllRestaurantInfo(restaurantData);
+    let restaurantList =
+      swiggyJsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+    if (restaurantList === undefined) {
+      restaurantList =
+        swiggyJsonData?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants;
+    }
+    console.log(swiggyJsonData?.data?.cards);
+    console.log(restaurantList);
+
+    setAllRestaurantInfo(restaurantList);
   };
   return allRestaurantInfo;
 };
