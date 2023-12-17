@@ -11,7 +11,7 @@ const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
-    <div className="flex justify-between shadow-lg">
+    <div className="overflow-hidden flex justify-between shadow-lg">
       <div className="logo-container">
         <img className="w-28" src={LOGO_URL}></img>
       </div>

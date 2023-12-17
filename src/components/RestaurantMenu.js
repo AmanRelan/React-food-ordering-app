@@ -32,6 +32,13 @@ const RestaurantMenu = () => {
         singleCategory?.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
+  const toggleShowIndex = (index) => {
+    if (showIndex === index) {
+      setShowIndex(null);
+    } else {
+      setShowIndex(index);
+    }
+  };
   return (
     <div>
       <div className="flex mx-auto w-6/12">
@@ -69,7 +76,7 @@ const RestaurantMenu = () => {
           key={singleCategory?.card?.card?.title}
           data={singleCategory?.card?.card}
           showItems={index === showIndex ? true : false}
-          setShowIndex={() => setShowIndex(index)}
+          setShowIndex={() => toggleShowIndex(index)}
         />
       ))}
     </div>
