@@ -11,15 +11,15 @@ const RestaurantCard = (props) => {
   return (
     <div
       data-testid="restaurantCard"
-      className="m-4 p-4 w-[250px] h-[500px]  rounded-lg bg-gray-200 hover:bg-gray-400 shadow-xl"
+      className="m-4 p-4 w-[240px] h-[350px]  rounded-lg bg-gray-200 hover:bg-gray-400 shadow-2xl"
     >
       <img
-        className="rounded-lg w-64 h-56 object-cover"
+        className="rounded-lg w-60 h-40"
         src={CDN_URL + cloudinaryImageId}
         alt="restaurant-logo"
       />
-      <div className="w-64 h-16">
-        <h3 className="font-bold py-4 text-lg">{name}</h3>
+      <div className="h-16 overflow-hidden">
+        <h3 className="font-bold py-4 text-base">{name}</h3>
       </div>
       <div>
         <h4 className="h-16 overflow-hidden text-sm py-2">
@@ -27,16 +27,18 @@ const RestaurantCard = (props) => {
         </h4>
       </div>
       <div className="flex justify-between py-4">
-        <div className="flex h-10">
+        <div className="flex w-2/12">
           <h4>{avgRating}</h4>
           <h4 className="p-1">{<FaStar />}</h4>
         </div>
-        <div className="flex ml-4">
+        <div className="flex w-5/12 ml-4 text-sm">
           <p>🥪</p>
           <h4>{deliveryTime} mins</h4>
         </div>
+        <div className="w-6/12 text-sm font-bold">
+          <h4>{costForTwo}</h4>
+        </div>
       </div>
-      <h4>{costForTwo}</h4>
     </div>
   );
 };
